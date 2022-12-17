@@ -5,8 +5,12 @@ import TimeStamp from './TimeStamp.js';
 
 const ChatEntry = (props) => {
   console.log('in ChatEntry');
+
+  const localRemoteClass =
+    props.localName === props.sender ? 'local' : 'remote';
+
   return (
-    <div className="chat-entry local">
+    <div className={'chat-entry ' + localRemoteClass}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
@@ -24,6 +28,7 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  localName: PropTypes.string.isRequired,
 };
 
 export default ChatEntry;

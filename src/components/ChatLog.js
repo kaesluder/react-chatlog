@@ -1,14 +1,11 @@
 import React from 'react';
 import './ChatLog.css';
+import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 // import PropTypes from 'prop-types';
 
-// create ChatLog function
-// iterate over entries
-
-const ChatLog = function (entries) {
+const ChatLog = function (props) {
   console.log('in ChatLog');
-  console.log(entries);
   const _renderOneEntry = function (entry) {
     console.log('in _renderOneEntry');
     return (
@@ -19,10 +16,22 @@ const ChatLog = function (entries) {
         sender={entry.sender}
         body={entry.body}
         timeStamp={entry.timeStamp}
+        localName={props.localName}
       ></ChatEntry>
     );
   };
-  return entries.entries.map(_renderOneEntry); // from ChatLog
+  return props.entries.map(_renderOneEntry); // from ChatLog
 };
-
+ChatLog.propTypes = {
+  entries: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      sender: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      timeStamp: PropTypes.string.isRequired,
+      localName: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  // setter: PropTypes.func.isRequired,
+};
 export default ChatLog;
