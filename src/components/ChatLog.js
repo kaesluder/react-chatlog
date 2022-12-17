@@ -23,13 +23,13 @@ const ChatLog = function (props) {
   return props.entries.map(_renderOneEntry); // from ChatLog
 };
 ChatLog.propTypes = {
+  localName: PropTypes.string.isRequired,
   entries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       sender: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
       timeStamp: PropTypes.string.isRequired,
-      localName: PropTypes.string.isRequired,
     })
   ).isRequired,
   // setter: PropTypes.func.isRequired,
