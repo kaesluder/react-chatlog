@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.js';
 
 const ChatEntry = (props) => {
+  console.log('in ChatEntry');
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{props.sender}</h2>
