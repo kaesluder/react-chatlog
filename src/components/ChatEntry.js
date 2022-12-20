@@ -3,8 +3,13 @@ import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.js';
 
+const emptyHeart = '🤍';
+const filledHeart = '❤️';
+
 const ChatEntry = (props) => {
-  console.log('in ChatEntry');
+  console.log(`in ChatEntry: liked = ${props.liked}`);
+
+  const likedIcon = props.liked ? filledHeart : emptyHeart;
 
   const localRemoteClass =
     props.localName === props.sender ? 'local' : 'remote';
@@ -17,7 +22,12 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}></TimeStamp>
         </p>
-        <button className="like">🤍</button>
+        <button
+          className="like"
+          onClick={(event) => props.handleLiked(props.id)}
+        >
+          {likedIcon}
+        </button>
       </section>
     </div>
   );
@@ -28,7 +38,9 @@ ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
   localName: PropTypes.string.isRequired,
+  handleLiked: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
