@@ -31,7 +31,6 @@ const App = () => {
   // return a copy of the object with mutated
   // field.
   const toggleLikedOnMessage = (message) => {
-    console.log(message);
     return { ...message, liked: !message.liked };
   };
 
@@ -41,13 +40,12 @@ const App = () => {
       (m) => m.id === id,
       toggleLikedOnMessage
     );
-    console.log(newMessages);
     return newMessages;
   };
 
   const handleLiked = function (id) {
     console.log(`in handle liked for: ${id}`);
-    setMessagesState(toggleLikedById(id, messagesState));
+    setMessagesState((messagesState) => toggleLikedById(id, messagesState));
   };
 
   return (
