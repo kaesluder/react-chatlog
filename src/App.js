@@ -20,6 +20,10 @@ const mapMutate = function (li, predicateFunc, mutatorFunc) {
 const App = () => {
   const [messagesState, setMessagesState] = useState(chatMessages);
 
+  const getSenders = function (messages) {
+    return Array.from(new Set(messages.map((m) => m.sender)));
+  };
+
   const countLikes = function (messages) {
     return messages.reduce(
       (count, message) => (message.liked ? count + 1 : count),
@@ -51,7 +55,10 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>{countLikes(messagesState)} ❤️s</h1>
+        <h1>
+          Chat between: {getSenders(messagesState).join(', ')}:&nbsp;
+          {countLikes(messagesState)} ❤️s
+        </h1>
       </header>
       <main>
         <ChatLog
