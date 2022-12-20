@@ -9,8 +9,10 @@ const filledHeart = '❤️';
 const ChatEntry = (props) => {
   console.log(`in ChatEntry: liked = ${props.liked}`);
 
+  // Set the display emoji for liked messages.
   const likedIcon = props.liked ? filledHeart : emptyHeart;
 
+  // set the local/remote style
   const localRemoteClass =
     props.localName === props.sender ? 'local' : 'remote';
 

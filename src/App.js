@@ -6,8 +6,11 @@ import { useState } from 'react';
 
 const LOCAL_NAME = 'Vladimir';
 
-// Changes list elements matching predicateFunc using mutatorFunc
-const mapMutate = function (li, predicateFunc, mutatorFunc) {
+// Map over li applying mutatorFunction only when predicateFunction
+// returns true.
+// Takes: list, predicate function, mutator function
+// Returns: copy of list with replaced elements.
+const mapWhen = function (li, predicateFunc, mutatorFunc) {
   return li.map((element) => {
     if (predicateFunc(element)) {
       return mutatorFunc(element);
@@ -20,10 +23,15 @@ const mapMutate = function (li, predicateFunc, mutatorFunc) {
 const App = () => {
   const [messagesState, setMessagesState] = useState(chatMessages);
 
+  // Returns a list of unique message senders from a list of messages.
+  // Takes list of messages.
+  // Returns list of unique senders.
   const getSenders = function (messages) {
     return Array.from(new Set(messages.map((m) => m.sender)));
   };
 
+  // Takes list of messages.
+  // Returns count of liked messages.
   const countLikes = function (messages) {
     return messages.reduce(
       (count, message) => (message.liked ? count + 1 : count),
@@ -31,15 +39,19 @@ const App = () => {
     );
   };
 
-  // toggle the liked field of an message object
-  // return a copy of the object with mutated
-  // field.
+  // Toggle the liked field of a single message object.
+  // Takes a message object
+  // Returns new message with modified fields.
   const toggleLikedOnMessage = (message) => {
     return { ...message, liked: !message.liked };
   };
 
+  // Toggles the liked field on a single message in list where
+  // id = message.id.
+  // Takes valid id and list of messages.
+  // Returns copy of list with changed message.
   const toggleLikedById = function (id, messages) {
-    const newMessages = mapMutate(
+    const newMessages = mapWhen(
       messages,
       (m) => m.id === id,
       toggleLikedOnMessage
@@ -47,8 +59,11 @@ const App = () => {
     return newMessages;
   };
 
+  // Sets the liked flag on a single message and saves state.
+  // Takes message id.
+  // Sets messageState triggering redraw of dependent JSX objects.
   const handleLiked = function (id) {
-    console.log(`in handle liked for: ${id}`);
+    // console.log(`in handle liked for: ${id}`);
     setMessagesState((messagesState) => toggleLikedById(id, messagesState));
   };
 
