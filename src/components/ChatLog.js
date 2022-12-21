@@ -5,9 +5,9 @@ import ChatEntry from './ChatEntry';
 // import PropTypes from 'prop-types';
 
 const ChatLog = function (props) {
-  console.log('in ChatLog');
+  //console.log('in ChatLog');
   const _renderOneEntry = function (entry) {
-    console.log('in _renderOneEntry');
+    //console.log('in _renderOneEntry');
     return (
       // for _renderOneEntry
       <ChatEntry
