@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/react-chatlog/static/css/main.d13f5779.chunk.css",
+    "main.js": "/react-chatlog/static/js/main.00f1cab8.chunk.js",
+    "main.js.map": "/react-chatlog/static/js/main.00f1cab8.chunk.js.map",
+    "runtime-main.js": "/react-chatlog/static/js/runtime-main.d5d3b3eb.js",
+    "runtime-main.js.map": "/react-chatlog/static/js/runtime-main.d5d3b3eb.js.map",
+    "static/js/2.9effea4f.chunk.js": "/react-chatlog/static/js/2.9effea4f.chunk.js",
+    "static/js/2.9effea4f.chunk.js.map": "/react-chatlog/static/js/2.9effea4f.chunk.js.map",
+    "index.html": "/react-chatlog/index.html",
+    "static/css/main.d13f5779.chunk.css.map": "/react-chatlog/static/css/main.d13f5779.chunk.css.map",
+    "static/js/2.9effea4f.chunk.js.LICENSE.txt": "/react-chatlog/static/js/2.9effea4f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d5d3b3eb.js",
+    "static/js/2.9effea4f.chunk.js",
+    "static/css/main.d13f5779.chunk.css",
+    "static/js/main.00f1cab8.chunk.js"
+  ]
+}
