@@ -19,6 +19,9 @@
   padding-bottom: 5rem;
   padding-top: 10rem;
   max-width: 25rem;
+  align-items: center;
+  margin: auto;
+
 }
 
 #App h1 {
